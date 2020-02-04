@@ -289,18 +289,6 @@ declare namespace ElectronLog {
      */
     file: FileTransport;
 
-    /**
-     * When logging inside renderer process, it shows log in application
-     * console too and vice versa. This transport can impact on performance,
-     * so it's disabled by default for packaged application.
-     */
-    ipc: Transport | null;
-
-    /**
-     * Sends a JSON POST request with LogMessage in the body to the specified url
-     */
-    remote: RemoteTransport;
-
     [key: string]: Transport | null;
   }
 

@@ -18,10 +18,6 @@ module.exports = {
   getVersion: getVersion,
   isDev: isDev,
   isElectron: isElectron,
-  isIpcChannelListened: isIpcChannelListened,
-  loadRemoteModule: loadRemoteModule,
-  onIpc: onIpc,
-  sendIpc: sendIpc,
   showErrorBox: showErrorBox,
 };
 
@@ -51,19 +47,6 @@ function getElectronModule(name) {
 
   return null;
 }
-
-function getIpc() {
-  if (process.type === 'browser' && electron && electron.ipcMain) {
-    return electron.ipcMain;
-  }
-
-  if (process.type === 'renderer' && electron && electron.ipcRenderer) {
-    return electron.ipcRenderer;
-  }
-
-  return null;
-}
-
 
 function getPath(name) {
   var app = getApp();
@@ -101,77 +84,6 @@ function isDev() {
 
 function isElectron() {
   return process.type === 'browser' || process.type === 'renderer';
-}
-
-/**
- * Return true if the process listens for the IPC channel
- * @param {string} channel
- */
-function isIpcChannelListened(channel) {
-  var ipc = getIpc();
-  return ipc ? ipc.listenerCount(channel) > 0 : false;
-}
-
-/**
- * Try to load the module in the opposite process
- * @param {string} moduleName
- */
-function loadRemoteModule(moduleName) {
-  if (process.type === 'browser') {
-    getApp().on('web-contents-created', function (e, contents) {
-      contents.executeJavaScript(
-        'try {require("' + moduleName + '")} catch(e){}'
-      );
-    });
-  } else if (process.type === 'renderer') {
-    try {
-      getRemote().require(moduleName);
-    } catch (e) {
-      // Can't be required. Webpack?
-    }
-  }
-}
-
-/**
- * Listen to async messages sent from opposite process
- * @param {string} channel
- * @param {function} listener
- */
-function onIpc(channel, listener) {
-  var ipc = getIpc();
-  if (ipc) {
-    ipc.on(channel, listener);
-  }
-}
-
-/**
- * Sent a message to opposite process
- * @param {string} channel
- * @param {any} message
- */
-function sendIpc(channel, message) {
-  if (process.type === 'browser') {
-    sendIpcToRenderer(channel, message);
-  } else if (process.type === 'renderer') {
-    sendIpcToMain(channel, message);
-  }
-}
-
-function sendIpcToMain(channel, message) {
-  var ipc = getIpc();
-  if (ipc) {
-    ipc.send(channel, message);
-  }
-}
-
-function sendIpcToRenderer(channel, message) {
-  if (!electron || !electron.BrowserWindow) {
-    return;
-  }
-
-  electron.BrowserWindow.getAllWindows().forEach(function (wnd) {
-    wnd.webContents && wnd.webContents.send(channel, message);
-  });
 }
 
 function showErrorBox(title, message) {

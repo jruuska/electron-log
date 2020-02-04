@@ -5,8 +5,6 @@ var electronApi = require('./electronApi');
 var log = require('./log').log;
 var transportConsole = require('./transports/console');
 var transportFile = require('./transports/file');
-var transportIpc = require('./transports/ipc');
-var transportRemote = require('./transports/remote');
 
 module.exports = create('default');
 module.exports.default = module.exports;
@@ -34,9 +32,7 @@ function create(logId) {
 
   instance.transports = {
     console: transportConsole(instance),
-    file: transportFile(instance),
-    remote: transportRemote(instance),
-    ipc: transportIpc(instance),
+    file: transportFile(instance)
   };
 
   instance.levels.forEach(function (level) {
