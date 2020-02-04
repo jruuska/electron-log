@@ -59,14 +59,6 @@ function getPath(name) {
   }
 }
 
-function getRemote() {
-  if (electron && electron.remote) {
-    return electron.remote;
-  }
-
-  return null;
-}
-
 function getVersion() {
   var app = getApp();
   if (!app) return null;

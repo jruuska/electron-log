@@ -1,5 +1,5 @@
 {
-  "name": "electron-log",
+  "name": "@jruuska/electron-log",
   "version": "4.0.5",
   "description": "Just a very simple logging module for your Electron application",
   "main": "src/index.js",
@@ -8,12 +8,11 @@
     "test": "humile 'src/**/*spec.js'",
     "test:full": "npm run test && npm run lint && npm run test:projects",
     "test:projects": "humile 'test-projects/**/*.spec.js' -R list",
-    "postversion": "git push && git push --tags",
     "prepack": "npm run test:full",
     "preversion": "npm run test:full"
   },
   "typings": "src/index.d.ts",
-  "repository": "megahertz/electron-log",
+  "repository": "git://github.com/jruuska/electron-log.git",
   "files": [
     "src/*",
     "!__specs__"
@@ -32,8 +31,8 @@
   ],
   "author": "Alexey Prokhorov",
   "license": "MIT",
-  "bugs": "https://github.com/megahertz/electron-log/issues",
-  "homepage": "https://github.com/megahertz/electron-log#readme",
+  "bugs": "https://github.com/jruuska/electron-log/issues",
+  "homepage": "https://github.com/jruuska/electron-log#readme",
   "devDependencies": {
     "@types/node": "^13.1.8",
     "electron": "*",

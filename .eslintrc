@@ -6,7 +6,7 @@
     "node": true
   },
   "rules": {
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": 0,
     "func-names": 0,
     "key-spacing": [2, {
       "beforeColon": false,
