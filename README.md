@@ -1,10 +1,10 @@
-# electron-log
-[![Build Status](https://travis-ci.org/megahertz/electron-log.svg?branch=master)](https://travis-ci.org/megahertz/electron-log)
-[![NPM version](https://badge.fury.io/js/electron-log.svg)](https://badge.fury.io/js/electron-log)
-[![Dependencies status](https://david-dm.org/megahertz/electron-log/status.svg)](https://david-dm.org/megahertz/electron-log)
+This is a fork of [electron-log 4.0.5](https://github.com/megahertz/electron-log/tree/663186153d7f7021efa61b6a8c6e2fc2ec1bc4ce) with features unnecessary for personal use case removed.
 
-Just a simple logging module for your Electron or NW.js application.
-No dependencies. No complicated configuration. Just require and use.
+---
+
+# electron-log
+A simple logging module for your Electron applications.
+No dependencies. No complicated configuration. Just require and use.  
 Also, it can be used without Electron in any node.js application.
 
 By default, it writes logs to the following locations:
@@ -15,9 +15,9 @@ By default, it writes logs to the following locations:
 
 ## Installation
 
-Install with [npm](https://npmjs.org/package/electron-log):
+Install with [yarn](https://yarnpkg.com/) from [npm](https://npmjs.org/package/@joonas/electron-log):
 
-    npm install electron-log
+    yarn install electron-log
     
 ## Usage
 
