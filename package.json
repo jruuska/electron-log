@@ -1,5 +1,5 @@
 {
-  "name": "@jruuska/electron-log",
+  "name": "@joonas/electron-log",
   "version": "4.0.5",
   "description": "Just a very simple logging module for your Electron application",
   "main": "src/index.js",
