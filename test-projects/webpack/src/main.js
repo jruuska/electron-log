@@ -6,7 +6,7 @@ var path = require('path');
 
 var app = electron.app;
 
-app.allowRendererProcessReuse = true
+app.allowRendererProcessReuse = true;
 
 var win;
 
