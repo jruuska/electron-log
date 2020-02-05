@@ -85,25 +85,6 @@ The file transport writes log messages to a file.
 
 [Read more about file transport](docs/file.md).
 
-#### IPC transport
-When logging inside renderer process, it also shows log in application
-console and vice versa. This transport can impact on performance, so
-it's disabled by default for packaged application.
-
-##### Options
-
- - **level**, default 'silly'
-
-#### Remote transport
-
-Sends a JSON POST request with `LogMessage` in the body to the specified url.
-
-##### Options
-
- - **level**, default false
- - **url**, remote endpoint
-
-[Read more about remote transport](docs/remote.md).
 
 #### Disable a transport
 
@@ -188,8 +169,7 @@ const log = electronLog.create('anotherInstance');
 
 ### Web Worker
 
-It's possible to use the module with Web Worker. However, ipc transport is not
-active, so log messages from worker are not displayed in the main app console.
+It's possible to use the module with Web Worker.
 
 ## Related
 
