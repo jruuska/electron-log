@@ -9,7 +9,7 @@ var makeTmpDir = require('./makeTmpDir');
 describe('transports/file/file', function () {
   describe('File', function () {
     var LICENSE_PATH = path.join(__dirname, '../../../../LICENSE');
-    var LICENSE_FILE_SIZE = 1082;
+    var LICENSE_FILE_SIZE = 1120;
 
     afterEach(function () {
       makeTmpDir(false).remove();
