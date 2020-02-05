@@ -6,6 +6,8 @@ var path = require('path');
 
 var app = electron.app;
 
+app.allowRendererProcessReuse = true
+
 var win;
 
 function createWindow() {
